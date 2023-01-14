@@ -6,17 +6,19 @@
 //
 
 import Foundation
-struct SearchImageResponse {
+struct SearchImageResponse: Decodable, Equatable {
     let meta: Meta
     let documents: [Document]
     
     // MARK: - Meta
-    struct Meta {
+    struct Meta: Decodable, Equatable {
         let isEnd: Bool
     }
     
     // MARK: - Document
-    struct Document {
+    struct Document: Decodable, Equatable, Identifiable, Hashable {
+        var id: String { return thumbnailURL }
+        
         let collection: String
         let thumbnailURL: String
         let imageURL: String
