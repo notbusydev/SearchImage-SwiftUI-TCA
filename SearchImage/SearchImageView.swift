@@ -1,13 +1,15 @@
 //
-//  SearchView.swift
+//  SearchImageView.swift
 //  SearchImage
 //
 //  Created by JaeBin on 2023/01/13.
 //
 
 import SwiftUI
+import ComposableArchitecture
 
-struct SearchView: View {
+struct SearchImageView: View {
+    let store: StoreOf<SearchImage>
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,11 +18,5 @@ struct SearchView: View {
             Text("Hello, world!")
         }
         .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
     }
 }
