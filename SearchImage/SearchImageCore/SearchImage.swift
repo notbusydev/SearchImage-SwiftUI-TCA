@@ -20,6 +20,7 @@ struct SearchImage: ReducerProtocol {
         var page: Int? = nil
         var documents: [Document] = []
         var isPagingEnabled: Bool = false
+        var isChangingText: Bool = false
         var errorMessage: String?
     }
     
@@ -42,18 +43,22 @@ struct SearchImage: ReducerProtocol {
             case .navigationPathChanged(let paths):
                 state.navigationPaths = paths
                 return .none
+                
             case .errorMessage(let message):
                 state.errorMessage = message
                 return .none
+                
             case .searchTextChanged(let text):
                 state.searchText = text
                 state.page = nil
                 state.isPagingEnabled = false
+                state.isChangingText = true
                 state.documents = []
                 return .task {
                     try await Task.sleep(for: .seconds(1))
                     return .searchImage
-                }.cancellable(id: SearchTextDebounceID.self)
+                }.cancellable(id: SearchTextDebounceID.self, cancelInFlight: true)
+                
             case .searchImage:
                 let searchText = state.searchText
                 let page = state.page
@@ -65,6 +70,7 @@ struct SearchImage: ReducerProtocol {
                         return .errorMessage(error.localizedDescription)
                     }
                 }
+                
             case .searchFetchResponse(let response):
                 let newDocuments = response.documents
                 if state.page == nil {
@@ -74,7 +80,9 @@ struct SearchImage: ReducerProtocol {
                     state.documents = currentDocuments + newDocuments
                 }
                 state.isPagingEnabled = !response.meta.isEnd
+                state.isChangingText = false
                 return .none
+                
             case .more:
                 let currentPage = state.page ?? 1
                 state.page = currentPage + 1
