@@ -14,6 +14,10 @@
 		DDA02B302971A1D4007AE0F3 /* SearchImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA02B2F2971A1D4007AE0F3 /* SearchImageTests.swift */; };
 		DDA02B3A2971A1D4007AE0F3 /* SearchImageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA02B392971A1D4007AE0F3 /* SearchImageUITests.swift */; };
 		DDA02B3C2971A1D4007AE0F3 /* SearchImageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA02B3B2971A1D4007AE0F3 /* SearchImageUITestsLaunchTests.swift */; };
+		DDF72DE82972569B003591D7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF72DE72972569B003591D7 /* String+Extension.swift */; };
+		DDF72DEA297256A3003591D7 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF72DE9297256A3003591D7 /* Int+Extension.swift */; };
+		DDF72DED29725F13003591D7 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = DDF72DEC29725F13003591D7 /* Nuke */; };
+		DDF72DEF29725F13003591D7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDF72DEE29725F13003591D7 /* NukeUI */; };
 		DDFD06762972529600D809C7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DDFD06752972529600D809C7 /* ComposableArchitecture */; };
 		DDFD0678297252AD00D809C7 /* SearchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0677297252AD00D809C7 /* SearchImage.swift */; };
 		DDFD067C2972539800D809C7 /* SearchImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD067B2972539800D809C7 /* SearchImageClient.swift */; };
@@ -48,6 +52,8 @@
 		DDA02B352971A1D4007AE0F3 /* SearchImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchImageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA02B392971A1D4007AE0F3 /* SearchImageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageUITests.swift; sourceTree = "<group>"; };
 		DDA02B3B2971A1D4007AE0F3 /* SearchImageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DDF72DE72972569B003591D7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		DDF72DE9297256A3003591D7 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		DDFD0677297252AD00D809C7 /* SearchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImage.swift; sourceTree = "<group>"; };
 		DDFD067B2972539800D809C7 /* SearchImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageClient.swift; sourceTree = "<group>"; };
 		DDFD06832972543F00D809C7 /* SearchImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageResponse.swift; sourceTree = "<group>"; };
@@ -58,7 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF72DEF29725F13003591D7 /* NukeUI in Frameworks */,
 				DDFD06762972529600D809C7 /* ComposableArchitecture in Frameworks */,
+				DDF72DED29725F13003591D7 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,11 +110,12 @@
 		DDA02B1D2971A1D2007AE0F3 /* SearchImage */ = {
 			isa = PBXGroup;
 			children = (
+				DDF72DE629725678003591D7 /* Extension */,
 				DDA02B1E2971A1D2007AE0F3 /* SearchImageApp.swift */,
 				DDA02B202971A1D2007AE0F3 /* SearchImageView.swift */,
 				DDFD0679297252B400D809C7 /* SearchImageCore */,
-				DDFD06802972540100D809C7 /* Entity */,
 				DDFD067A2972538800D809C7 /* Client */,
+				DDFD06802972540100D809C7 /* Entity */,
 				DDA02B222971A1D4007AE0F3 /* Assets.xcassets */,
 				DDA02B242971A1D4007AE0F3 /* Preview Content */,
 			);
@@ -136,6 +145,15 @@
 				DDA02B3B2971A1D4007AE0F3 /* SearchImageUITestsLaunchTests.swift */,
 			);
 			path = SearchImageUITests;
+			sourceTree = "<group>";
+		};
+		DDF72DE629725678003591D7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DDF72DE72972569B003591D7 /* String+Extension.swift */,
+				DDF72DE9297256A3003591D7 /* Int+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DDFD0679297252B400D809C7 /* SearchImageCore */ = {
@@ -180,6 +198,8 @@
 			name = SearchImage;
 			packageProductDependencies = (
 				DDFD06752972529600D809C7 /* ComposableArchitecture */,
+				DDF72DEC29725F13003591D7 /* Nuke */,
+				DDF72DEE29725F13003591D7 /* NukeUI */,
 			);
 			productName = SearchImage;
 			productReference = DDA02B1B2971A1D2007AE0F3 /* SearchImage.app */;
@@ -255,6 +275,7 @@
 			mainGroup = DDA02B122971A1D2007AE0F3;
 			packageReferences = (
 				DDFD06742972529600D809C7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				DDF72DEB29725F13003591D7 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = DDA02B1C2971A1D2007AE0F3 /* Products */;
 			projectDirPath = "";
@@ -301,7 +322,9 @@
 				DDFD06842972543F00D809C7 /* SearchImageResponse.swift in Sources */,
 				DDA02B212971A1D2007AE0F3 /* SearchImageView.swift in Sources */,
 				DDA02B1F2971A1D2007AE0F3 /* SearchImageApp.swift in Sources */,
+				DDF72DEA297256A3003591D7 /* Int+Extension.swift in Sources */,
 				DDFD067C2972539800D809C7 /* SearchImageClient.swift in Sources */,
+				DDF72DE82972569B003591D7 /* String+Extension.swift in Sources */,
 				DDFD0678297252AD00D809C7 /* SearchImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +652,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DDF72DEB29725F13003591D7 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = exactVersion;
+				version = 11.5.3;
+			};
+		};
 		DDFD06742972529600D809C7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -640,6 +671,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DDF72DEC29725F13003591D7 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDF72DEB29725F13003591D7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		DDF72DEE29725F13003591D7 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDF72DEB29725F13003591D7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
 		DDFD06752972529600D809C7 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDFD06742972529600D809C7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
