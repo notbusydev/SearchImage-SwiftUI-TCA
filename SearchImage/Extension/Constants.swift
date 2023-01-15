@@ -9,5 +9,5 @@ import Foundation
 
 struct Constants {
     #warning("API Key 입력이 필요합니다.")
-    static let restAPIKEY = "1ecf35ec7347b17d762191bdfcc5bcdb"
+    static let restAPIKEY = ""
 }
