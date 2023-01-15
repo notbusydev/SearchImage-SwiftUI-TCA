@@ -43,6 +43,10 @@ struct SearchImageView: View {
                         }
                     }
                 }
+                .alert(
+                    self.store.scope(state: \.alert),
+                    dismiss: .alertDismissed
+                  )
                 
             }
         }

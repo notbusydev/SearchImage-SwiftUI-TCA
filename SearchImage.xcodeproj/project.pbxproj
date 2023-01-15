@@ -20,6 +20,7 @@
 		DDF72DEF29725F13003591D7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DDF72DEE29725F13003591D7 /* NukeUI */; };
 		DDF72DF12973BBB1003591D7 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF72DF02973BBB1003591D7 /* ImageDetailView.swift */; };
 		DDF72DF42973BBC8003591D7 /* ImageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF72DF32973BBC8003591D7 /* ImageDetail.swift */; };
+		DDF72DF92973DFE8003591D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF72DF82973DFE8003591D7 /* Constants.swift */; };
 		DDFD06762972529600D809C7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DDFD06752972529600D809C7 /* ComposableArchitecture */; };
 		DDFD0678297252AD00D809C7 /* SearchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0677297252AD00D809C7 /* SearchImage.swift */; };
 		DDFD067C2972539800D809C7 /* SearchImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD067B2972539800D809C7 /* SearchImageClient.swift */; };
@@ -59,6 +60,7 @@
 		DDF72DF02973BBB1003591D7 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		DDF72DF32973BBC8003591D7 /* ImageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetail.swift; sourceTree = "<group>"; };
 		DDF72DF52973C051003591D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DDF72DF82973DFE8003591D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DDFD0677297252AD00D809C7 /* SearchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImage.swift; sourceTree = "<group>"; };
 		DDFD067B2972539800D809C7 /* SearchImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageClient.swift; sourceTree = "<group>"; };
 		DDFD06832972543F00D809C7 /* SearchImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageResponse.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				DDF72DE72972569B003591D7 /* String+Extension.swift */,
 				DDF72DE9297256A3003591D7 /* Int+Extension.swift */,
+				DDF72DF82973DFE8003591D7 /* Constants.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				DDA02B212971A1D2007AE0F3 /* SearchImageView.swift in Sources */,
 				DDA02B1F2971A1D2007AE0F3 /* SearchImageApp.swift in Sources */,
 				DDF72DEA297256A3003591D7 /* Int+Extension.swift in Sources */,
+				DDF72DF92973DFE8003591D7 /* Constants.swift in Sources */,
 				DDFD067C2972539800D809C7 /* SearchImageClient.swift in Sources */,
 				DDF72DF42973BBC8003591D7 /* ImageDetail.swift in Sources */,
 				DDF72DE82972569B003591D7 /* String+Extension.swift in Sources */,

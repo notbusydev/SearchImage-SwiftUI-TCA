@@ -22,7 +22,8 @@ extension DependencyValues {
 extension SearchImageClient: DependencyKey {
     static var liveValue: SearchImageClient = Self(
         fetch: { keyword, page in
-            guard let url = "https://dapi.kakao.com/v2/search/image".toURL else { throw RequestError.invalidError }
+            guard keyword != "테스트에러발생" else { throw RequestError.test }
+            guard let url = "https://dapi.kakao.com/v2/search/image".toURL else { throw RequestError.invalidURL }
             var queryItems: [URLQueryItem] = [URLQueryItem(name: "query", value: keyword),
                                               URLQueryItem(name: "size", value: "30")]
             if let page = page {
@@ -30,7 +31,7 @@ extension SearchImageClient: DependencyKey {
             }
             var request = URLRequest(url: url.appending(queryItems: queryItems))
             request.httpMethod = "GET"
-            request.addValue("KakaoAK 1ecf35ec7347b17d762191bdfcc5bcdb", forHTTPHeaderField: "Authorization")
+            request.addValue("KakaoAK \(Constants.restAPIKEY)", forHTTPHeaderField: "Authorization")
             let (data, response) = try await URLSession.shared.data(for: request)
             return try JSONDecoder().decode(SearchImageResponse.self, from: data)
         }
@@ -44,6 +45,17 @@ extension SearchImageClient: DependencyKey {
 }
 
 enum RequestError: LocalizedError {
-    case invalidError
+    case invalidURL
+    case test
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "URL이 유실 되었습니다."
+        case .test:
+            return "테스트용 에러메시지입니다."
+            
+        }
+    }
+    
 }
 

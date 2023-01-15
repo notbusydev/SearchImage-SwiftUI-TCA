@@ -21,19 +21,21 @@ struct SearchImage: ReducerProtocol {
         var documents: [Document] = []
         var isPagingEnabled: Bool = false
         var isChangingText: Bool = false
-        var errorMessage: String?
+        
         var selectedDocument: ImageDetail.State?
+        var alert: AlertState<Action>?
     }
     
     enum Action: Equatable {
         case navigationPathChanged([Route])
-        case errorMessage(String?)
+        case errorMessage(String)
         case searchTextChanged(String)
         case searchImage
         case searchFetchResponse(SearchImageResponse)
         case more
         case imageTouched(Document)
         case imageDetail(ImageDetail.Action)
+        case alertDismissed
     }
     
     private enum SearchTextDebounceID { }
@@ -48,7 +50,7 @@ struct SearchImage: ReducerProtocol {
                 return .none
                 
             case .errorMessage(let message):
-                state.errorMessage = message
+                state.alert = AlertState(title: TextState(message))
                 return .none
                 
             case .searchTextChanged(let text):
@@ -99,6 +101,9 @@ struct SearchImage: ReducerProtocol {
                 state.navigationPaths.removeLast()
                 return .none
             case .imageDetail:
+                return .none
+            case .alertDismissed:
+                state.alert = nil
                 return .none
             }
           
