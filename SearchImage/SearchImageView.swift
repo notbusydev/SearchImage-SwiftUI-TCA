@@ -66,10 +66,13 @@ struct SearchImageView: View {
     
     @ViewBuilder func emptyView(_ viewStore: ViewStoreOf<SearchImage>) -> some View {
         Spacer(minLength: 100)
+        
         if viewStore.searchText.isEmpty {
             Text("검색어를 입력해주세요.")
         } else if !viewStore.isChangingText {
             Text("검색 결과가 없습니다.")
+        } else {
+            ProgressView(String(format: "'%@'으로 검색합니다.", viewStore.searchText)).foregroundColor(.gray)
         }
     }
 }

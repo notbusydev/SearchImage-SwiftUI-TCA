@@ -59,6 +59,7 @@ struct SearchImage: ReducerProtocol {
                 state.isPagingEnabled = false
                 state.isChangingText = true
                 state.documents = []
+                guard !text.isEmpty else { state.isChangingText = false; return .cancel(id: SearchTextDebounceID.self) }
                 return .task {
                     try await Task.sleep(for: .seconds(1))
                     return .searchImage
