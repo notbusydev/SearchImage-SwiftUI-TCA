@@ -27,15 +27,16 @@ struct SearchImageResponse: Decodable, Equatable {
     // MARK: - Document
     struct Document: Decodable, Equatable, Identifiable, Hashable {
         var id: String { return thumbnailurl }
-        
+        let collection: String
         let thumbnailurl: String
         let imageurl: String
         let width: Int
         let height: Int
-        let displaySitename: String
-        let datetime: String
+        let displaySitename: String?
+        let datetime: String?
 
         enum CodingKeys: String, CodingKey {
+            case collection = "collection"
             case thumbnailurl = "thumbnail_url"
             case imageurl = "image_url"
             case width = "width"

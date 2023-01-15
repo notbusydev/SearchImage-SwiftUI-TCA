@@ -22,6 +22,7 @@ struct SearchImageView: View {
                             ForEach(viewStore.documents, id: \.id) { document in
                                 LazyImage(url: document.thumbnailurl.toURL)
                                     .aspectRatio(1, contentMode: .fill)
+                                    .onTapGesture { viewStore.send(.imageTouched(document)) }
                             }
                             pagingProgressView(viewStore)
                             
@@ -34,6 +35,14 @@ struct SearchImageView: View {
                 .searchable(text: viewStore.binding(get: \.searchText, send: SearchImage.Action.searchTextChanged),
                             placement: .navigationBarDrawer,
                             prompt: "검색어를 입력 후 검색")
+                .navigationDestination(for: SearchImage.Route.self) { route in
+                    switch route {
+                    case .imageDetail:
+                        IfLetStore(self.store.scope(state: \.selectedDocument, action: SearchImage.Action.imageDetail)) { store in
+                            ImageDetailView(store: store)
+                        }
+                    }
+                }
                 
             }
         }

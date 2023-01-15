@@ -7,9 +7,12 @@
 
 import Foundation
 
-extension String {
-    var toURL: URL? {
-        guard let encodingURLString = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return nil }
-        return URL(string: encodingURLString)
+extension Int {
+    var toString: String {
+        String(self)
+    }
+    
+    var toCGFloat: CGFloat {
+        CGFloat(self)
     }
 }
